@@ -1,17 +1,22 @@
 <!doctype html>
 
-<html lang = "en">
-
-<head>
+<html lang="en"><head>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   
-</head>
+<script type="text/javascript">
+  
+function othername() {
+    var input = document.getElementById("test").value;
+    alert(input);
+}
+  
+</script></head>
 
   
-<body background = "color-scheme-378-main.png">
+<body background="color-scheme-378-main.png">
 
 <title>
 Coding Kitchen!
@@ -19,11 +24,11 @@ Coding Kitchen!
 </title>
 
 
-<div style = "text-align:center">
+<div style="text-align:center">
 
 <button>
 
-<a href = "http://interlakegwc.github.io/FinalProject/">
+<a href="http://interlakegwc.github.io/FinalProject/">
 
     <img src="CodingKitchenLogo.jpg" alt="CodingKitchenLogo" style="width:364px;height:288px;padding:30px 30px 30px 30px;">
 
@@ -33,27 +38,14 @@ Coding Kitchen!
 
 <br>
 
-<input type="text" placeholder="Type here..." required>
+<input type="text" id="test" placeholder="Type here..." required="">
 
 <input type="submit" value="Search">
 
-<button onclick="console.log('pizza')">Click me</button>
-
-<!-- <button onclick = "myFunction()" id = "searchResults">Search</button>-->
-
-<!-- <p id = "searchResults">Search...</p>-->
-
-<!-- <script>-->
-<!-- function myFunction() {-->
-
-<!--     document.getElementById("searchResults").innerHTML = "Results";-->
-<!-- }-->
-
-</script>
+<button onclick="othername()" id="searchResults">Search</button>
 
 </div>
 
 </body>
-
 
 </html>
