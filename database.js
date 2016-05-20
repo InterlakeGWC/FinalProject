@@ -59,3 +59,50 @@
      
      searchName('Dumpl');
      //searchTaste('Sweet');
+     
+     var stmt;
+     function searchAll(taste, cuisine){
+        
+        //check if taste is null
+        //if not....then what?
+        //if so...then what?
+        //if taste is null -> search just cuisine
+        //else search taste and cuisine.  
+        //if cuisine is null -> just taste
+        //else cuisine and taste
+        
+        //SELECT * FROM test WHERE
+        //taste LIKE %taste%
+        //cuisine LIKE %cuisine%
+        
+        var beginningSelect = "SELECT * FROM test WHERE ";
+        var isFirstParam = true;
+        if (taste) {
+          beginningSelect= beginningSelect + "taste LIKE '" + taste + "'";
+          isFirstParam = false;
+          console.log(beginningSelect);
+        }
+        
+        if (cuisine) {
+          if (isFirstParam) {
+            beginningSelect = beginningSelect + " cuisine LIKE '" + cuisine +"'";
+          } else {
+            beginningSelect += " or cuisine LIKE '" + cuisine + "'";
+          }
+          console.log(beginningSelect);
+        }
+        
+        
+        stmt = db.prepare(beginningSelect);
+        console.log(stmt);
+        
+        var foodObjects = [];
+        stmt.bind();
+        while(stmt.step()) { //
+            var row = stmt.getAsObject();
+            foodObjects.push(row);
+        }
+        console.log(foodObjects);
+       return foodObjects;
+      }
+     searchAll('c', 'Italian');
