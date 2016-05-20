@@ -2,6 +2,8 @@
 
 // Code goes here
 
+// Code goes here
+
         var headers = ['id', 'food', 'recipe', 'taste', 'restrictions', 'meal_type', 'cuisine', 'difficulty'];
         //Create the database
         var db = new SQL.Database();
@@ -26,53 +28,34 @@
         db.run("INSERT INTO test VALUES (15, 'Vanilla Ice Cream',	'http://allrecipes.com/recipe/8314/vanilla-ice-cream/',	'Sweet',	'Lactose',	'Desert',	'American',	'Medium');");
   
       var stmt;
-      function search(taste, cuisine){
-        stmt = db.prepare("SELECT * FROM test where taste = '" + taste +  "' or cuisine = '" + cuisine + "'");
+      function searchTaste(taste){
+        stmt = db.prepare("SELECT * FROM test where taste = '" + taste + "'");
         console.log(stmt);
         
-        var body = document.getElementsByTagName('body')[0];
-        var tbl = document.createElement('table');
-        tbl.style.width = '100%';
-        tbl.setAttribute('border', '1');
-        var header = tbl.createTHead();
-        var row = header.insertRow(0);
-    
-        for (var i = 0; i < 8; i++) {
-          var cell = row.insertCell(i);
-          cell.innerHTML = headers[i];
-        }
-    
-        var tbdy = document.createElement('tbody');
-    
+        var foodObjects = [];
         stmt.bind();
         while(stmt.step()) { //
             var row = stmt.getAsObject();
-
-           
-            console.log(row);
-            var tr = document.createElement('tr');
-            for (var j = 0; j < 8; j++) {
-               
-                    var td = document.createElement('td');
-                    td.appendChild(document.createTextNode(row[headers[j]]))
-                    tr.appendChild(td)
-                
-            }
-            tbdy.appendChild(tr);
+            foodObjects.push(row);
         }
-    
-    
-        tbl.appendChild(tbdy);
-        body.appendChild(tbl);
-        
-        stmt.getAsObject();
+        console.log(foodObjects);
+       return foodObjects;
       }
-  
-     search('Sweet', 'Italian');
-     // {col1:1, col2:111}
-  
-   // var stmt = db.prepare("SELECT * FROM test");
-   // stmt.getAsObject(); // {col1:1, col2:111}
-
-
-
+      
+      
+       function searchName(name){
+        stmt = db.prepare("SELECT * FROM test where food LIKE'%" + name + "%'");
+        console.log(stmt);
+        
+        var foodObjects = [];
+        stmt.bind();
+        while(stmt.step()) { //
+            var row = stmt.getAsObject();
+            foodObjects.push(row);
+        }
+       console.log(foodObjects);
+       return foodObjects;
+      }
+     
+     searchName('Dumpl');
+     //searchTaste('Sweet');
