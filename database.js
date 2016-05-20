@@ -66,11 +66,7 @@
         //check if taste is null
         //if not....then what?
         //if so...then what?
-        //if taste is null -> search just cuisine
-        //else search taste and cuisine.  
-        //if cuisine is null -> just taste
-        //else cuisine and taste
-        
+
         //SELECT * FROM test WHERE
         //taste LIKE %taste%
         //cuisine LIKE %cuisine%
