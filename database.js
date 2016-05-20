@@ -61,7 +61,7 @@
      //searchTaste('Sweet');
      
      var stmt;
-     function searchAll(taste, cuisine){
+     function searchAll(taste, cuisine, restriction, meal, difficulty){
         
         //check if taste is null
         //if not....then what?
