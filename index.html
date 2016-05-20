@@ -1,17 +1,22 @@
 <!doctype html>
 
-<html lang = "en">
-
-<head>
+<html lang="en"><head>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   
-</head>
+<script type="text/javascript">
+  
+function othername() {
+    var input = document.getElementById("test").value;
+    alert(input);
+}
+  
+</script></head>
 
   
-<body style = "background-color:lightpink">
+<body background="color-scheme-378-main.png">
 
 <title>
 Coding Kitchen!
@@ -19,40 +24,26 @@ Coding Kitchen!
 </title>
 
 
-<div style = "text-align:left">
+<div style="text-align:center">
 
 <button>
 
-<a href = "https://www.khanacademy.org/computer-programming/new-webpage/5003947630">
+<a href="http://interlakegwc.github.io/FinalProject/">
 
-    <img src="CodingKitchenLogo.jpg" alt="CodingKitchenLogo" style="width:304px;height:228px;">
+    <img src="CodingKitchenLogo.jpg" alt="CodingKitchenLogo" style="width:364px;height:288px;padding:30px 30px 30px 30px;">
 
 </a>
 
-
 </button>
+
+<br>
+
+<input type="text" id="test" placeholder="Type here..." required="">
+
+<button onclick="othername()" id="searchResults">Search</button>
 
 </div>
 
-
-<!--<input type="text" placeholder="Type here..." required>-->
-
-<!--<input type="submit" value="Search">-->
-
-<button onclick = "myFunction()" id = "searchResults">Search</button>
-
-<p id = "searchResults">Search...</p>
-
-<script>
-function myFunction() {
-
-    document.getElementById("searchResults").innerHTML = "Results";
-}
-
-</script>
-
-
 </body>
-
 
 </html>
